@@ -17,4 +17,10 @@ Run node index.js.
 Navigate to localhost:3000 in your web browser.
 Use Postman to call the other APIs as required.
 
+List of routes is as below:
 
+* http://localhost:3000/cars [POST]
+* http://localhost:3000/cars/1234567 [GET]
+* http://localhost:3000/ [GET]
+
+For more details import the postman collection which is available in the project.
