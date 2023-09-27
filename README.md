@@ -1,17 +1,20 @@
 # middleware
 
-In this project some express.js middlewares are used for validation and security checks. `index.js` is the main file of the project. 3 route are defined in the `index.js`. The first one, which is the root route, is not checked in the general middleware. The second one has its own dedicated middleware. And the third one is just generally check.
+In this project, some Express.js middlewares are used for validation and security checks. The index.js file serves as the main file of the project and defines three routes.
 
-The main middleware is called generalMiddleware. It check if a specific header called `'x-contract-id'` is present or not. If present it should have 5 character as length. The root route is not checked here just for simpilicty.
+The first route, which is the root route, is not checked by the general middleware for simplicity. The second route has its own dedicated middleware. Lastly, the third route undergoes general checks.
 
-The next middleware which is implemented in the form of a method/function is responsible for security check. `checkSecurity` uses populare express.js packages to do check for XSS and other measures. Also `limiter` is used to prevent DOS attacks.
+The main middleware, called generalMiddleware, verifies the presence of a specific header called 'x-contract-id'. If present, it should have a length of 5 characters.
 
-In the `index.js` also there is a simple error handling layer.
+The next middleware is implemented as a method/function and is responsible for security checks. The checkSecurity function utilizes popular Express.js packages to perform checks for Cross-Site Scripting (XSS) and other security measures. Additionally, a limiter is used to prevent Denial-of-Service (DOS) attacks.
 
+Furthermore, the index.js file contains a simple error handling layer.
 
 To run the project:
 
-* yarn install
-* node index.js
-* browse localhost:3000
-* use postman to call other APIs
+Install the dependencies using yarn install.
+Run node index.js.
+Navigate to localhost:3000 in your web browser.
+Use Postman to call the other APIs as required.
+
+
