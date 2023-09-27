@@ -1,8 +1,9 @@
 const generalMiddleware = (req, res, next) => {
   console.log('Middleware function running...');
 
-  if (req.path !== '/') {
+  if (req.path !== '/') { // for the sake of simpilicty do not force the header on the root path
 
+    //many applications expect parametric headers on all requests
     const headerName = 'x-contract-id';
     const headerValue = req.headers[headerName.toLowerCase()];
 
@@ -11,7 +12,7 @@ const generalMiddleware = (req, res, next) => {
     }
   }
   
-  next();
+  next(); // pass the control to the next middleware
 };
 
 module.exports = generalMiddleware;

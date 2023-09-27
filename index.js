@@ -6,8 +6,13 @@ const carsValidateRequestBody = require('./validations/carsValidation');
 const app = express();
 const port = 3000;
 
+// we need the req.body json data
 app.use(express.json());
+
+// check security measures
 checkSecurity(app);
+
+// use the next middleware
 app.use(generalMiddleware);
 
 // Error handling middleware for handling bad requests
@@ -19,14 +24,17 @@ app.use((err, req, res, next) => {
     }
 });
 
+// route for the root
 app.get('/', (req, res) => {
     res.send('Hello, world!');
 });
 
+// a sample post route
 app.post('/cars', carsValidateRequestBody, (req, res) => {
     res.send('[POST] cars');
 });
 
+// a route with parameters
 app.get('/cars/:id', (req, res) => {
     console.log(req.params);
     res.send(`You passed ${req.params.id}`);

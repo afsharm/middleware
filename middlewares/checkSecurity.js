@@ -1,10 +1,10 @@
-// Import required modules
 const helmet = require('helmet');
 const xss = require('xss-clean');
 const rateLimit = require('express-rate-limit');
 
-// Create a middleware function
+// a middleware function
 const checkSecurity = (app) => {
+
   // Use Helmet middleware to set various security-related HTTP headers
   app.use(helmet());
 
@@ -19,6 +19,7 @@ const checkSecurity = (app) => {
     message: 'Too many requests from this IP, please try again later.',
   });
 
+  // /api route is just a sample here
   app.use('/api', limiter); // Apply rate limiter to API endpoints that need protection
 
 };
